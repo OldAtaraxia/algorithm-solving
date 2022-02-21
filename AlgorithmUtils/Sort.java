@@ -27,6 +27,36 @@ public class Sort {
         quickSort(nums, j + 1, right);
     }
 
+    public static void quickSort2(int[] nums, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+
+        int i = start, j = end;
+        int x = nums[(i + j) / 2];
+        // System.out.println(nums[(i + j) / 2]);
+        
+        while (i <= j) {
+            while (i <= j && nums[i] > x) {
+                i++;
+            }
+
+            while (i <= j && nums[j] < x) {
+                j--;
+            }
+
+            if (i <= j) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                i++;
+                j--;
+            }
+        }
+        quickSort2(nums, start, j);
+        quickSort2(nums, i, end);
+    }
+
     public static void mergeSort(int[] nums, int left, int right) {
         if (left >= right) return;
 
@@ -56,7 +86,7 @@ public class Sort {
 
     public static void main(String[] args) {
         int[] nums = {1, 5, 6, 7, 8, 9, 3, 4, 2, 0};
-        mergeSort(nums, 0, nums.length - 1);
+        quickSort2(nums, 0, nums.length - 1);
         for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i] + " ");
         }
