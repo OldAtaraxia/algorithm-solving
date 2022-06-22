@@ -5,7 +5,7 @@ public class BinarySearch {
     public int binarySearchLeft(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while(left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = (left + right) / 2;
             if (check(mid)) right = mid;
             else left = mid + 1;
         }
@@ -16,7 +16,7 @@ public class BinarySearch {
     public int binarySearchRight(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while(left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = (left + right + 1) / 2;
             if (check(mid)) left = mid;
             else right = mid - 1;
         }
