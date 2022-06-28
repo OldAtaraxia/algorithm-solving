@@ -39,12 +39,13 @@ class Solution {
                 j--;
             }
         }
+        System.out.println("now i == " + i + " and j == " + j);
         if (start + k - 1 <= j) {
-            return qiuckSelect(nums, start, j, k);
+            return quickSelect(nums, start, j, k);
         }
 
         if (start + k - 1 >= i) {
-            return qiuckSelect(nums, i, end, k - (i - start));
+            return quickSelect(nums, i, end, k - (i - start));
         }
 
         return nums[j + 1];
@@ -52,4 +53,3 @@ class Solution {
 }
 // @lc code=end
 
--
